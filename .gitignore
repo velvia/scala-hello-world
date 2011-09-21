@@ -1,0 +1,6 @@
+*.class
+*.log
+project/boot*
+project/target*
+target*
+.history
