@@ -15,6 +15,13 @@ javaOptions += "-XX:MaxPermSize=256m"
 javaOptions += "-Xmx1024m"
 
 // For the sbt-assembly plugin to be able to generate single JAR files for easy deploys
-seq(sbtassembly.Plugin.assemblySettings: _*)
+//seq(sbtassembly.Plugin.assemblySettings: _*)
 
-jarName in Assembly := "scala-hello-world.jar"
+//jarName in Assembly := "scala-hello-world.jar"
+
+// Proguard settings
+seq(proguardSettings: _*)
+
+proguardOptions ++= Seq(keepMain("HelloWorld"))
+
+minJarPath <<= target(_ / "hello-world.jar")
